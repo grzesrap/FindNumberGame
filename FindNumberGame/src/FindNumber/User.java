@@ -45,13 +45,13 @@ public class User implements Serializable, Comparable<User> {
     public String toString() {
         String strProba = "";
         if (getNumberOfAttempts() == 0 || getNumberOfAttempts() >= 5 && getNumberOfAttempts() <= 21) {
-            strProba = " prób";
+            strProba = " prÃ³b";
         }
         else if (getNumberOfAttempts() == 1) {
-            strProba = " próba";
+            strProba = " prÃ³ba";
         }
         else if (getNumberOfAttempts() > 1 && getNumberOfAttempts() < 5) {
-            strProba = " próby";
+            strProba = " prÃ³by";
         }
         String strTemp = getNameUser()+ " - " + Float.toString(getTimeAttempts()) + " s - " + Integer.toString(getNumberOfAttempts()) + strProba;
         return strTemp;

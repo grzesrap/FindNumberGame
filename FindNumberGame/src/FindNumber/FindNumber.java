@@ -72,7 +72,7 @@ public class FindNumber extends JFrame {
 	double maxNumber = 100.0d;
 	double minNumber = 0.0d;
 	String strNumbers;
-	String temp = "Twoje próby: ";
+	String temp = "Twoje prÃ³by: ";
 	int czyOk, ktoryRaz, nrWins, iTime;
 	double elapsedTime;
 	float sTime;
@@ -87,13 +87,13 @@ public class FindNumber extends JFrame {
 	}
 //---------------------------- KONSTRUKTOR ---------------------------	
 	public FindNumber() {							
-		setTitle("Znajdz liczbê");
+		setTitle("Znajdz liczbÄ™ by GR");
 		setResizable(false);
 		addWindowListener( new WindowAdapter() {
 			@SuppressWarnings("unchecked")
 			public void windowOpened( WindowEvent e ){
-				usersLinkList = (LinkedList<User>) fileRW.ReadObjectToFile();		//wczytaj listê z pliku
-				Collections.sort(usersLinkList, new TimeAttemptsComparator());		//wypisz posortowan¹ liste 	
+				usersLinkList = (LinkedList<User>) fileRW.ReadObjectToFile();		//wczytaj list? z pliku
+				Collections.sort(usersLinkList, new TimeAttemptsComparator());		//wypisz posortowan? liste 	
 			    User us;
 			    for (int i=0; i < usersLinkList.size(); i++) {
 			    	us = usersLinkList.get(i);
@@ -115,7 +115,7 @@ public class FindNumber extends JFrame {
 		titleTextField.setEditable(false); 
 		titleTextField.setBackground(Color.YELLOW);
 		titleTextField.setForeground(Color.BLUE); 
-		titleTextField.setText("Znajd¿ wylosowan¹ liczbê z przedzia³u 1-99");
+		titleTextField.setText("ZnajdÅº wylosowanÄ… liczbÄ™ z przedziaÅ‚u 1-99");
 		titleTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		titleTextField.setFont(new Font("Arial", Font.BOLD, 12)); 
 		GridBagConstraints gridConstraints = new GridBagConstraints(); 
@@ -224,7 +224,7 @@ public class FindNumber extends JFrame {
 		messageTextField.setEditable(false); 
 		messageTextField.setBackground(Color.YELLOW);
 		messageTextField.setForeground(Color.BLUE); 
-		messageTextField.setText("Wprowad¿ liczbê");
+		messageTextField.setText("WprowadÅº liczbÄ™");
 		messageTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		messageTextField.setFont(new Font("Arial", Font.BOLD, 16)); 
 		gridConstraints = new GridBagConstraints(); 
@@ -343,7 +343,7 @@ public class FindNumber extends JFrame {
 		gridConstraints.anchor = GridBagConstraints.WEST;
 		playersPanel.add(userTextField[4], gridConstraints);
 		
-		clearListButton.setText("Czyœæ listê wyników");
+		clearListButton.setText("CzyÅ›Ä‡ listÄ™ wynikÃ³w");
 		gridConstraints = new GridBagConstraints();
 		gridConstraints.gridx = 0;
 		gridConstraints.gridy = 7;
@@ -362,7 +362,7 @@ public class FindNumber extends JFrame {
 		gridConstraints.gridx = 1;
 		gridConstraints.gridy = 3;
 		getContentPane().add(buttonsPanel, gridConstraints); 
-		checkButton.setText("Sprawd¿");
+		checkButton.setText("SprawdÅº");
 		gridConstraints = new GridBagConstraints(); 
 		gridConstraints.gridx = 0;
 		gridConstraints.gridy = 0;
@@ -429,7 +429,7 @@ public class FindNumber extends JFrame {
 	}
 //------------------------------------------------------------------------------
 	private void bestActionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this, "Autor: Grzegorz Rapacz", "Znajd¿ liczbê by GR", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Autor: Grzegorz Rapacz", "ZnajdÅº liczbÄ™ by GR", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void checkActionPerformed(ActionEvent e) {	
 		sprawdzLiczbe();
@@ -462,7 +462,7 @@ public class FindNumber extends JFrame {
 		boxTextField[1].setText("0");
 		messageTextField.setText("Nowa gra!");
 		ktoryRaz = 0;
-		temp = "Twoje próby: ";
+		temp = "Twoje prÃ³by: ";
 		maxNumber = 100.0d;
 		minNumber = 0;
 		hit = false;
@@ -475,7 +475,7 @@ public class FindNumber extends JFrame {
 			startTime = System.currentTimeMillis();
 		}
 		if (inputTextField.getText().equals("")) {		//jak pole puste to return
-			messageTextField.setText("Wprowad¿ liczbe z przedzia³u 1-99");
+			messageTextField.setText("WprowadÅº liczbÄ™ z przedziaÅ‚u 1-99");
         	return;
 		}
     	strNumbers = inputTextField.getText();			//jedna lub dwie cyfry 0-9
@@ -484,7 +484,7 @@ public class FindNumber extends JFrame {
         } 
     	else {
     		inputTextField.setText("");
-    		messageTextField.setText("Wprowad¿ liczbe z przedzia³u 1-99");
+    		messageTextField.setText("WprowadÅº liczbÄ™ z przedziaÅ‚u 1-99");
         	return;
         }
     	if (ktoryRaz<1) {				//spacja po pierwszym razie
@@ -493,23 +493,23 @@ public class FindNumber extends JFrame {
     	else {
     		temp = temp + " " + strNumbers;
     	}
-		outputTextField.setText(temp); 	//wyœwietl próby
-		inputTextField.setText("");		//czyœæ input
+		outputTextField.setText(temp); 	//wy?wietl pr?by
+		inputTextField.setText("");		//czy?? input
     	ktoryRaz++;	
     	yoursNumber = Integer.parseInt(strNumbers);
-    	if (yoursNumber == randomNumber) {				//zgad³
+    	if (yoursNumber == randomNumber) {				//zgad?
     		hit = true;
     		stopTime = System.currentTimeMillis();
     		iTime = (int) (stopTime-startTime);
     		sTime = (float) ((iTime/1000)+((iTime%1000)/10)*0.01);
-    		messageTextField.setText("Zgad³es za " + ktoryRaz + " razem.\n Czas: " + sTime + " s");
+    		messageTextField.setText("ZgadÅ‚es za " + ktoryRaz + " razem.\n Czas: " + sTime + " s");
     		inputTextField.setText(strNumbers);
 //-------------------------------------------------------- 
-    		if (usersLinkList.size()<5) { 		//nie pe³na tablica wyników 5
+    		if (usersLinkList.size()<5) { 		//nie pe?na tablica wynik?w 5
     			user[nrWins]= new User("Player "+nrWins, ktoryRaz, sTime);
     			usersLinkList.add(user[nrWins]);
 			}
-    		else {							//pe³na lista
+    		else {							//pe?na lista
     			Collections.sort(usersLinkList, new TimeAttemptsComparator());
 				if (sTime<=usersLinkList.get(4).getTimeAttempts()) { //4
 					usersLinkList.remove(4);
@@ -517,7 +517,7 @@ public class FindNumber extends JFrame {
 					usersLinkList.add(user[4]);
 				}
     		}
-    		Collections.sort(usersLinkList, new TimeAttemptsComparator());		//wypisz posortowan¹ liste 	
+    		Collections.sort(usersLinkList, new TimeAttemptsComparator());		//wypisz posortowan? liste 	
     		User us;
     		for (int i=0; i < usersLinkList.size(); i++) {
     			us = usersLinkList.get(i);
@@ -528,7 +528,7 @@ public class FindNumber extends JFrame {
     		return;
     	}
     	if (yoursNumber < randomNumber) {				//Za malo
-    		messageTextField.setText("ZA MA£O. Spróbuj jeszcze raz");
+    		messageTextField.setText("ZA MAÅO. SprÃ³buj jeszcze raz");
     		if (yoursNumber > minNumber) {
     			boxTextField[1].setText(strNumbers);
     			minNumber = yoursNumber;
@@ -537,7 +537,7 @@ public class FindNumber extends JFrame {
     		return;
     	}
     	if (yoursNumber > randomNumber)	{				//Za duzo
-    		messageTextField.setText("ZA DU¯O. Spróbuj jeszcze raz");
+    		messageTextField.setText("ZA DUÅ»O. SprÃ³buj jeszcze raz");
     		if (yoursNumber < maxNumber) {
     			boxTextField[0].setText(strNumbers);
     			maxNumber = yoursNumber;
@@ -548,7 +548,7 @@ public class FindNumber extends JFrame {
     }
 		
 	private void aboutActionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this, "Znajd¿ wylosowan¹ liczbê z przedzia³u 1-99\nAutor: Grzegorz Rapacz", "Znajd¿ liczbê by GR", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "ZnajdÅº wylosowanÄ… liczbÄ™ z przedziaÅ‚u 1-99\nAutor: Grzegorz Rapacz", "ZnajdÅº liczbÄ™ by GR", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void exitActionPerformed(ActionEvent e) {
 		fileRW.WriteObjectToFile(usersLinkList);
